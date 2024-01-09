@@ -1,0 +1,58 @@
+﻿@model ST10090758_FarmCentral.Models.User
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>User Details</h1>
+<style>
+    body {
+        background: linear-gradient(to bottom, #ffffff,#c5d9c2, #8cb487,#538f4f,#006b17 );
+    }
+</style>
+<div>
+  
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.UserID)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.UserID)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Surname)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Surname)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.UserType)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.UserType)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.UserName)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.UserName)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Password)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Password)
+        </dd>
+    </dl>
+</div>
+<div>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.UserID}) |
+    <a asp-action="Index" style="color: white;">Back to Users</a>
+</div>

@@ -1,0 +1,77 @@
+﻿@using ST10090758_FarmCentral.Database
+@model ST10090758_FarmCentral.Models.Product
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Product Details</h1>
+<style>
+    body {
+        background: linear-gradient(to bottom, #ffffff,#c5d9c2, #8cb487,#538f4f,#006b17 );
+         
+    }
+</style>
+<div>
+   
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ProductID)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ProductID)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ProductName)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ProductName)
+        </dd>
+       
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Type)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Type)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Price)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Price)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.SupplyDate)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.SupplyDate)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.UserID)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.UserID)
+        </dd>
+    </dl>
+</div>
+<div>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ProductID }) |
+
+    @if (DBoperations.myUserType.Equals("FARMER"))
+    {
+        <a asp-action="FarmerProduct" style="color: white;">Back to Products</a>
+    }
+    else
+    {
+        <a asp-action="Product" style="color: white;">Back to Products</a>
+    }
+    
+    <!--use the above to ensure the data on the previous page is not lost and actually loads with that information, otherwise will be blank-->
+</div>

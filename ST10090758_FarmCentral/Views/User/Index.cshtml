@@ -1,0 +1,105 @@
+﻿@model IEnumerable<ST10090758_FarmCentral.Models.User>
+@using ST10090758_FarmCentral.Database;
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+@using ST10090758_FarmCentral.Controllers;
+
+<h1>FARM CENTRAL USERS</h1>
+
+<p>
+    
+        <a asp-action="Create" style="color: green;">Create New User</a>
+   
+    
+</p>
+<table class ="table table-bordered" border="1" bordercolor="#0f0e0e">
+    <thead>
+        <tr bgcolor="#1b5708">
+            <th style="color:white">
+                @Html.DisplayNameFor(model => model.UserID)
+            </th>
+            <th style="color:white">
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th style="color:white">
+                @Html.DisplayNameFor(model => model.Surname)
+            </th>
+            <th style="color:white">
+                @Html.DisplayNameFor(model => model.UserType)
+            </th>
+            <th style="color:white">
+                @Html.DisplayNameFor(model => model.UserName)
+            </th>
+            <th style="color:white">
+                @Html.DisplayNameFor(model => model.Password)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+            <tr>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.UserID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Surname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Password)
+            </td>
+            <td>
+
+                    @if (item.UserType.Equals("FARMER"))
+                    {
+
+                        <span>
+                            @Html.ActionLink("Edit", "Edit", new { id = item.UserID }, new { @class = "colored-edit" })
+                        </span>
+                        <span>
+                            @Html.ActionLink("Details", "Details", new { id = item.UserID }, new { @class = "colored-details" })
+                        </span>
+                        <span>
+                            @Html.ActionLink("Delete", "Delete", new { id = item.UserID }, new { @class = "colored-link" })
+                        </span>
+                        <span>
+                            @Html.ActionLink("Product", "Product", "Product", new { id = item.UserID }, new { @class = "colored-prod" })
+                        </span>
+
+
+                        //UserController.dbOp.UserID = item.UserID;
+                    }
+                    else
+                    {
+                        <span>
+                            @Html.ActionLink("Edit", "Edit", new { id = item.UserID },new { @class = "colored-edit" })
+                        </span>
+                        <span>
+                            @Html.ActionLink("Details", "Details", new { id = item.UserID },new { @class = "colored-details" })
+                        </span>
+                        <span>
+                            @Html.ActionLink("Delete", "Delete", new { id = item.UserID },new { @class = "colored-link" })
+                        </span>
+                        
+                    }
+
+
+                
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

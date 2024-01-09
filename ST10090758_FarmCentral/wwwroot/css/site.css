@@ -1,0 +1,56 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+
+.colored-link {
+    color: red
+}
+.colored-link:hover {
+    color: aqua
+}
+.colored-details{
+    color: yellowgreen
+}
+ .colored-details:hover {
+        color: aqua
+    }
+
+.colored-edit {
+    color: blue
+}
+.colored-edit:hover {
+    color: aqua
+}
+.colored-prod {
+    color: black
+}
+
+    .colored-prod:hover {
+        color: aqua
+    }
+.custom-navbar {
+    background: linear-gradient(to right, #034a20, #11832c,#3cc02b,#74ff04); 
+    color:white ; 
+}
+
+.green-linkCreate {
+    color: green;
+}
+.green-linkCreate:hover {
+    color: aqua
+}

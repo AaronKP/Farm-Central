@@ -1,0 +1,29 @@
+﻿
+@{
+    ViewData["Title"] = "Login";
+    Layout = "_LoginLayout";
+}
+
+<div class="login-page">
+    <!--name is the identifier variable that will be used in back end
+        Remmeber the post (send) get (retrieve)
+    -->
+    <div class="form">
+        <form class="register-form" >
+            <input type="text" placeholder="name" />
+            <input type="password" placeholder="password" />
+            <input type="text" placeholder="email address" />
+            <button>create</button>
+            <p class="message">Already registered? <a href="#">Sign In</a></p>
+        </form>
+        <form class="login-form" method="post" >
+            <input type="text" placeholder="username" name="txtUserName"/>
+            <input type="password" placeholder="password" name="txtPassword" />
+            <button type="submit" asp-action="ValidateLogin">login</button>
+            <!--different types of buttons : reset, submit etc-->
+            <p class="message">WELCOME TO FARM CENTRAL </p>
+        </form>
+    </div>
+</div>
+
+

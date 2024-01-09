@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="IIS Web Application Name" description="" value="ST10090758FarmCentral" tags="IisApp">
+    <parameterEntry kind="ProviderPath" scope="IisApp" match="^C:\\Users\\aaron\\source\\repos\\ST10090758_FarmCentral\\ST10090758_FarmCentral\\obj\\Release\\net6\.0\\PubTmp\\Out\\$" />
+  </parameter>
+</parameters>

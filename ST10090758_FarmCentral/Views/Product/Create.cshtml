@@ -1,0 +1,101 @@
+﻿@model ST10090758_FarmCentral.Models.Product
+@using ST10090758_FarmCentral.Controllers;
+@using ST10090758_FarmCentral.Database
+
+@{
+    ViewData["Title"] = "Create";
+    
+}
+
+<h1>New Product</h1>
+
+<style>
+    body {
+        background: linear-gradient(to bottom, #ffffff,#c5d9c2, #8cb487,#538f4f,#006b17 );
+    }
+</style>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+          
+            <div class="form-group">
+                <label asp-for="ProductName" class="control-label"></label>
+                <input asp-for="ProductName" name="lblProductName" class="form-control" />
+                <span asp-validation-for="ProductName" class="text-danger"></span>
+           
+            <div class="dropdown form-group my-3">
+                <button id="dropdownProductType" class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Product Type
+                </button>
+                <ul class="dropdown-menu form-group">
+                    <li><a class="dropdown-item" href="#" onclick="chosenType('poultry')">Poultry</a></li>
+                    <li><a class="dropdown-item" href="#" onclick="chosenType('meat')">Meat</a></li>
+                    <li><a class="dropdown-item" href="#" onclick="chosenType('dairy')">Dairy</a></li>
+                    <li><a class="dropdown-item" href="#" onclick="chosenType('grains')">Grain</a></li>
+                    <li><a class="dropdown-item" href="#" onclick="chosenType('fruit')">Fruit</a></li>
+                    <li><a class="dropdown-item" href="#" onclick="chosenType('veg')">Vegetable</a></li>
+                    <li><a class="dropdown-item" href="#" onclick="chosenType('other')">Other</a></li>
+                </ul>
+
+                <input type="hidden" asp-for="Type" name="cboProdType" id="storedType" />
+            </div>
+
+            </div>
+            <div class="form-group">
+                <label asp-for="Description" class="control-label"></label>
+                <input asp-for="Description" name="lblDescription" class="form-control" />
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Price" class="control-label"></label>
+                <input asp-for="Price" name="lblPrice" class="form-control" />
+                <span asp-validation-for="Price" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SupplyDate" class="control-label"></label>
+                <input asp-for="SupplyDate" name="lblSupplyDate" class="form-control" />
+                <span asp-validation-for="SupplyDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+
+                <label asp-for="UserID" class="control-label"></label>
+                <input asp-for="UserID" name="lblUserID" class="form-control " value="@UserController.dbOp.UserID"  />
+                <span asp-validation-for="UserID" class="text-danger"></span>
+            </div>
+            <div class="form-group  my-3">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    @if (DBoperations.myUserType.Equals("FARMER"))
+    {
+        <a asp-action="FarmerProduct" style="color: white;">Back to Products</a>
+    }else{
+        <a asp-action="Product" style="color: white;">Back to Products</a>
+    }
+   
+
+
+</div>
+
+@section Scripts{
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+        <script>
+             function chosenType(type) {
+                 var dropdownButton = document.getElementById('dropdownProductType');
+                 dropdownButton.innerText = type;
+
+                 var storedTypeInput = document.getElementById('storedType');
+                 storedTypeInput.value = type;
+             }
+    </script>
+
+}
+    

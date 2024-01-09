@@ -1,0 +1,55 @@
+﻿@model ST10090758_FarmCentral.Models.User
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit User</h1>
+
+<style>
+    body {
+        background: linear-gradient(to bottom, #ffffff,#c5d9c2, #8cb487,#538f4f,#006b17 );
+    }
+</style>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            
+            <div class="form-group">
+                <label asp-for="Name" class="control-label" ></label>
+                <input asp-for="Name" name="lblName" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Surname" class="control-label"></label>
+                <input asp-for="Surname" name="lblSurname" class="form-control" />
+                <span asp-validation-for="Surname" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="UserType" class="control-label"></label>
+                <input asp-for="UserType" name="lblUserType" class="form-control" />
+                <span asp-validation-for="UserType" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="UserName" class="control-label"></label>
+                <input asp-for="UserName" name="lblUserName" class="form-control" />
+                <span asp-validation-for="UserName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Password" class="control-label"></label>
+                <input asp-for="Password" name="lblPassword" class="form-control" />
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+            <div class="form-group  my-3">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index" style="color: white;">Back to Users</a>
+</div>
+
